@@ -22,6 +22,16 @@ $ make
 $ make install
 ````
 
+Comprobamos con:
+
+````bash
+$ node
+
+> process.version
+'v0.8.17'
+````
+Empecemos:
+
 # Consola
 
 Hagamos algunos comandos en consola para entrar en calor:
@@ -73,6 +83,12 @@ Escribamos archivos con código sencillo:
 * 'Un euler básico de mi colección'
 
 (TODO)
+
+* Ver si un `string` es una fecha válida:
+
+(TODO)
+
+Source: [hermanjunge.com](http://hermanjunge.com/post/33776860860/check-in-nodejs-whether-a-string-param-is-date-or-not)
 
 * 'Un ejemplo de recursión de cola'
 
