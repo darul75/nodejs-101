@@ -43,7 +43,22 @@ $ node
 * Operaciones Matemáticas
 
 ````js
->
+> 1+1
+2
+> 2/2
+1
+> (1+2)*3
+9
+> Math.sqrt(2)
+1.4142135623730951
+> 10%2
+0
+> 11%1
+0
+> 2**2
+... 
+> Math.pow(2,2)
+4
 ````
 
 * Manejo de Strings
