@@ -64,12 +64,51 @@ $ node
 * Manejo de Strings
 
 ````js
-
+> var a = "hola mundo";
+undefined
+> a.toUpperCase()
+'HOLA MUNDO'
+> a.toUpperCase().toLowerCase()
+'hola mundo'
+> var regex = /hola/;
+undefined
+> regex
+/hola/
+> regex.exec(a)
+[ 'hola',
+  index: 0,
+  input: 'hola mundo' ]
+> a.match(regex)
+[ 'hola',
+  index: 0,
+  input: 'hola mundo' ]
+> /mundo/.exec(a)
+[ 'mundo',
+  index: 5,
+  input: 'hola mundo' ]
+> var b = "hola horacio"
+undefined
+> b.match(/ho/)
+[ 'ho',
+  index: 0,
+  input: 'hola horacio' ]
+> b.match(/ho/g)
+[ 'ho', 'ho' ]
+> a.length
+10
+> for (var i = 0; i<a.length; i++){console.log(a[i])}
+h
+o
+l
+a
+ 
+m
+u
+n
+d
+o
+undefined
 ````
-
-* Evaluación de expresiones regulares
-
-(TODO)
 
 * Funciones nativas en JavaScript
 
@@ -181,13 +220,24 @@ $ node lib/euler_4.js
 
 * Ver si un `string` es una fecha válida:
 
-(TODO)
+````js
+var fecha = process.argv[2] || '';
+
+if ( fecha === '') {
+  console.log('Porfavor ingresa un parametro correcto, porfi?');
+  process.exit(0);
+}
+
+console.log(checkDate(fecha));
+
+function checkDate (param) {
+  var date = new Date(param)
+  if (date.toString() === 'Invalid Date') return false
+  return date
+}
+````
 
 Source: [hermanjunge.com](http://hermanjunge.com/post/33776860860/check-in-nodejs-whether-a-string-param-is-date-or-not)
-
-* 'Un ejemplo de recursión de cola'
-
-(TODO)
 
 * ----- 'Que use un require nativo'
 
