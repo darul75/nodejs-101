@@ -63,7 +63,9 @@ $ node
 
 * Manejo de Strings
 
-(TODO)
+````js
+
+````
 
 * Evaluación de expresiones regulares
 
@@ -71,15 +73,66 @@ $ node
 
 * Funciones nativas en JavaScript
 
-(TODO)
+````js
+> encodeURIComponent('20 Hola + +')
+'20%20Hola%20%2B%20%2B'
+> decodeURIComponent('20%20Hola%20%2B%20%2B')
+'20 Hola + +'
+````
 
 * Invocar librerías nativas
 
-(TODO) --- crypto
+  - [crypto](http://nodejs.org/api/crypto.html)
 
-(TODD) --- path
+````js
+> var crypto = require('crypto')
+undefined
+> crypto
+{ Credentials: [Function: Credentials],
+  createCredentials: [Function],
+  Hash: [Function],
+  createHash: [Function],
+  Hmac: [Function],
+  createHmac: [Function],
+  Cipher: [Function],
+  createCipher: [Function],
+  createCipheriv: [Function],
+  Decipher: [Function],
+  createDecipher: [Function],
+  createDecipheriv: [Function],
+  Sign: [Function],
+  createSign: [Function],
+  Verify: [Function],
+  createVerify: [Function],
+  DiffieHellman: [Function],
+  createDiffieHellman: [Function],
+  getDiffieHellman: [Function],
+  pbkdf2: [Function],
+  randomBytes: [Function],
+  pseudoRandomBytes: [Function],
+  rng: [Function],
+  prng: [Function] }
+> var myString = 'password';
+undefined
+> crypto.createHash('md5').update(myString).digest("hex");
+'5f4dcc3b5aa765d61d8327deb882cf99'
+````
 
-* Un 'one-liner' simpático: Generador de HahA aleatorio:
+  - [path](http://nodejs.org/api/path.html)
+
+````js
+> var path = require('path')
+undefined
+> path.join('http://', 'www.google.com', 'reader')
+'http:/www.google.com/reader'
+
+// Ejemplo con `http:/` con un slash
+
+> path.join('http:', 'www.google.com', 'reader')
+'http:/www.google.com/reader'
+````
+
+* Generador de HahA aleatorio:
 
 ````js
 > a='HAha';var b=[];for(var i=0;i<200;i++){var j=Math.floor(4*Math.random());if((i%2===0)&&(j%2===1)){j=j-1};if((i%2===1)&&(j%2===0)){j=j+1};b+=a[j]};console.log(b)
@@ -95,7 +148,36 @@ Escribamos archivos con código sencillo:
 
 * 'Un euler básico de mi colección'
 
-(TODO)
+[Problema Número 4, Proyecto Euler](http://projecteuler.net/problem=4)
+
+  - `lib/euler_4.js`
+
+````js
+var maximum = 0;
+
+for (var i = 999; i > 99; i--) {
+  for (var j = 999; j > 99; j--) {
+    var mult = i * j;
+    if (isPalindrome(mult + '') && (mult > maximum)) maximum = i * j;
+  };
+};
+
+console.log(maximum);
+
+// Aux
+function isPalindrome (str) {
+  return str === str.split("").reverse().join("");
+};
+````
+
+Lo ejecutamos con:
+
+````bash
+$ node lib/euler_4.js
+906609
+````
+
+![Pantallazo](http://cl.ly/image/3F0x0f0D2y1E/Screen%20Shot%202013-01-15%20at%208.09.01%20PM.png)
 
 * Ver si un `string` es una fecha válida:
 
