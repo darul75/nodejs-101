@@ -11,8 +11,6 @@ Visitemos [esta página](http://nodejs.org/), hay opciones para Windows, Linux y
 
 También, desde luego, podemos compilar desde el código fuente (Teniendo `build-essentials` en Ubuntu, `XCode en OS X, etc):
 
-![Pantallazo](http://cl.ly/image/1K2E190o3u30/Screen%20Shot%202013-01-15%20at%208.15.27%20AM.png)
-
 ````bash
 $ curl -O http://nodejs.org/dist/v0.8.17/node-v0.8.17.tar.gz
 $ tar xfvz node-v0.8.17.tar.gz
