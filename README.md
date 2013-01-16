@@ -1,7 +1,9 @@
 NodeJS 101
 =========
 
-Un popurrí de recetas de cocina para meterse en NodeJS de una vez.
+Un popurrí de recetas de cocina para meterse en NodeJS de una vez. Aprenderemos algo de scripting, a entender la idea de los _callbacks_, algo de archivos y un poco de HTTP.
+
+En el Tutorial NodeJS 201 introduciremos Bases de Datos, Reverse Proxing y Arquitectura Básica de APIs, cosa de con estos conocimientos podamos armar un _rudimentario_ sistema de autenticación en NodeJS.
 
 # Instalación de NodeJS
 
