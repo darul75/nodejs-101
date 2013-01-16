@@ -11,7 +11,7 @@ Visitemos [esta página](http://nodejs.org/), hay opciones para Windows, Linux y
 
 ![Pantallazo](http://cl.ly/image/0O3g451W0d3B/Screen%20Shot%202013-01-15%20at%208.14.28%20AM.png)
 
-También, desde luego, podemos compilar desde el código fuente (Teniendo `build-essentials` en Ubuntu, `XCode en OS X, etc):
+También, desde luego, podemos compilar desde el código fuente (Teniendo `build-essentials` en Ubuntu, `XCode` en OS X, etc):
 
 ````bash
 $ curl -O http://nodejs.org/dist/v0.8.17/node-v0.8.17.tar.gz
@@ -53,10 +53,6 @@ $ node
 9
 > Math.sqrt(2)
 1.4142135623730951
-> 10%2
-0
-> 11%1
-0
 > 2**2
 ... 
 > Math.pow(2,2)
@@ -66,13 +62,13 @@ $ node
 * Manejo de Strings
 
 ````js
-> var a = "hola mundo";
+> var a = "hola mundo"
 undefined
 > a.toUpperCase()
 'HOLA MUNDO'
 > a.toUpperCase().toLowerCase()
 'hola mundo'
-> var regex = /hola/;
+> var regex = /hola/
 undefined
 > regex
 /hola/
@@ -187,7 +183,7 @@ Source: [hermanjunge.com](http://hermanjunge.com/post/35334164416/haha-generator
 
 Escribamos archivos con código sencillo:
 
-* 'Un euler básico de mi colección'
+* Un problema del proyecto Euler
 
 [Problema Número 4, Proyecto Euler](http://projecteuler.net/problem=4)
 
@@ -226,7 +222,7 @@ $ node lib/euler_4.js
 var fecha = process.argv[2] || '';
 
 if ( fecha === '') {
-  console.log('Porfavor ingresa un parametro correcto, porfi?');
+  console.log('Por Favor ingresa un parametro correcto, porfi?');
   process.exit(0);
 }
 
@@ -239,14 +235,17 @@ function checkDate (param) {
 }
 ````
 
+![Pantallazo](http://cl.ly/image/1b1a1u3c1n2v/Screen%20Shot%202013-01-16%20at%205.14.05%20PM.png)
+
 Source: [hermanjunge.com](http://hermanjunge.com/post/33776860860/check-in-nodejs-whether-a-string-param-is-date-or-not)
+
+Más sobre fechas en JS [acá](http://hermanjunge.com/post/33837417540/javascript-date-format)
 
 * 'Autenticación Mega Básica'
 
  - `lib/mega_basic_auth.js`
 
 ````js
-
 /**
  *  Los passwords son 'cocacola' y 'kryspo'
  *  (para que no se nos olviden)
@@ -291,7 +290,7 @@ function chequeaUsuarioPassword (user, pass) {
 }
 ```
 
-# Administración de Archivos
+# Un guiño al systema de archivos (file system)
 
 Pasaremos nuestra base de datos a un archivo JSON:
 
@@ -358,9 +357,33 @@ function chequeaUsuarioPassword (user, pass) {
   process.exit(0);
 }
 ````
+
+![Pantallazo](http://cl.ly/image/2U1o2X3Y2n0H/Screen%20Shot%202013-01-16%20at%205.27.41%20PM.png)
+
 # HTTP
 
 ## Server
+
+- `lib/megabasic_server.js `
+
+````js
+var http = require('http')
+
+http.createServer(onRequest).listen(8888)
+
+console.log("Partio!")
+
+function onRequest(req, res) {
+  res.write("hola")
+  res.end()
+}
+````
+
+![Pantallazo](http://cl.ly/image/151J3t1w1D3m/Screen%20Shot%202013-01-16%20at%205.31.37%20PM.png)
+
+![Pantallazo](http://cl.ly/image/0I0u3z0F1o0n/Screen%20Shot%202013-01-16%20at%205.32.10%20PM.png)
+
+- `lib/not_so_basic_server.js`
 
 ````js
 var http = require('http');
@@ -392,3 +415,7 @@ function onRequest (req, res) {
   }
 }
 ````
+
+# Conclusión
+
+Seguiremos con más goodies en el tutorial NodeJS 202. Proximamente! Muchas Gracias.
