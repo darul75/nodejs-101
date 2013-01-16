@@ -356,27 +356,37 @@ function chequeaUsuarioPassword (user, pass) {
   process.exit(0);
 }
 ````
-
-# Bases de Datos
-
-## MySQL
-
-(TODO)
-
-## MongoDB
-
-(TODO)
-
 # HTTP
 
 ## Server
 
-(TODO)
+````js
+var http = require('http');
 
-## Requests a otros server
+http.createServer(onRequest).listen(8888);
 
-(TODO)
+console.log('Partió!')
 
-# APIs
+function onRequest (req, res) {
+  basicRouteHandler(req.url);
 
-(TODO)
+  function basicRouteHandler (route) {
+    switch (route) {
+      case '/':
+        responder('Home');
+      break;
+      case '/hola':
+        responder('Hola');
+        break;
+      default:
+        responder('chao');
+        break;
+    }
+  }
+
+  function responder (text) {
+    res.write(text);
+    res.end()
+  }
+}
+````
