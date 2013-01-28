@@ -416,6 +416,48 @@ function onRequest (req, res) {
 }
 ````
 
+Ahora, para terminar, agreguemos un "servidor de archivos". Queremos entregar un archivo estático _html_ para ser rendereado por el browser:
+
+- `/index.html`
+
+````html
+<html>
+  <body>
+    <h1>Amo a Ballero</h1>
+  </body>
+</html>
+````
+
+Usaremos los modulos que ya conocemos: `fs`, `path` y `http`:
+
+- `/lib/index_server.js`
+
+````js
+var http  = require('http')
+var fs    = require('fs');
+var path  = require('path');
+
+// Usaremos funciones anónimas...
+http.createServer(function (request, response) {
+
+  response.writeHead(200); //Entregar 200 OK como respuesta.
+  var filePath = path.resolve(__dirname + '/../index.html')
+
+  fs.readFile(filePath, 'utf-8', function (err, contenido){
+    response.write(contenido);
+    response.end();
+  });
+
+}).listen(8888);
+
+// Esto se ejecuta cuando se echa a correr el programa.
+console.log("El Webserver esta corriendo!.");
+````
+
+El resultado al llamar a `http://localhost:8888`:
+
+![Pantallazo](http://cl.ly/image/0J3r1x0x0x2t/Screen%20Shot%202013-01-28%20at%201.23.42%20AM.png)
+
 # Conclusión
 
-Seguiremos con más goodies en el tutorial NodeJS 202. Proximamente! Muchas Gracias.
+Seguiremos con más _goodies_ en el tutorial NodeJS 202. Proximamente! Muchas Gracias.
